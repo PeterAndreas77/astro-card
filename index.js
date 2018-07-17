@@ -1,7 +1,6 @@
 const APOD_URL = "https://api.nasa.gov/planetary/apod";
 const NASA_KEY = "pK6FNZNUOqux2Rcm4o4wX6YLvascd311qVd5KLZ8";
 
-var drawer = new Howl({src: ['sounds/open-drawer.mp3']});
 var card = new Howl({src: ['sounds/card-flip.mp3']});
 var btn = new Howl({src: ['sounds/btn-click.mp3']});
 
@@ -82,18 +81,10 @@ function handleFlip() {
   });
 }
 
-function handleNav() {
-  $(".nav-toggle").on("click", () => {
-    drawer.play();
-    $(".foot-nav").toggleClass("open");
-  });
-}
-
 function handler() {
   handleMaxDate();
   handleDate();
   handleFlip();
-  handleNav();
   handleBTNSounds();
 }
 
