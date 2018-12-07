@@ -93,11 +93,46 @@
             </fieldset>
           </form>
           <div>
-            <span class="animation-controls"
-              >background animation controls</span
-            >
+            <span class="animation-controls">Background controls</span>
             <button id="play-btn">&#9658;</button>
             <button id="pause-btn">&#10074;&#10074;</button>
+            <span class="manual-control">Manual</span>
+            <button id="open-modal">?</button>
+          </div>
+          <div id="manual-modal">
+            <div id="modal-content">
+              <span id="close-modal">&times;</span>
+              <p>
+                This App is intended to be used as a learning tool for those who
+                are young at heart and have a passion for astronomy.
+              </p>
+              <ul>
+                <li>
+                  First, it will ask for the user's input in the form of a date
+                  format mm/dd/yy.
+                </li>
+                <li>
+                  User input a date. This field will have a restricted min and
+                  max dates already set up from the get-go; because it will pull
+                  data from the NASA picture of the day API, the min date is the
+                  first date this service starts, and the max date is today.
+                </li>
+                <li>
+                  It will then provide immediate feedback to the user if their
+                  input is valid, within min and max range, and in mm/dd/yy
+                  format.
+                </li>
+                <li>
+                  Once the user sees that their input is valid, they can click
+                  the "get a card" button. It will then render the image or
+                  video of the day in the form of a card.
+                </li>
+                <li>
+                  When the user clicks the card, it will flip and reveal related
+                  details of what is going on inside the picture or video.
+                </li>
+              </ul>
+            </div>
           </div>
           <section
             class="js-result"

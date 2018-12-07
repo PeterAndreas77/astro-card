@@ -1,8 +1,8 @@
 const APOD_URL = "https://api.nasa.gov/planetary/apod";
 const NASA_KEY = "pK6FNZNUOqux2Rcm4o4wX6YLvascd311qVd5KLZ8";
 
-var card = new Howl({src: ['sounds/card-flip.mp3']});
-var btn = new Howl({src: ['sounds/btn-click.mp3']});
+var card = new Howl({ src: ["sounds/card-flip.mp3"] });
+var btn = new Howl({ src: ["sounds/btn-click.mp3"] });
 
 function getJSONFromAPOD(date, callback) {
   const JSON = {
@@ -37,6 +37,8 @@ function renderJSON(data) {
         data.explanation
       }</p></div></div></div>`
     );
+  } else {
+    $(".js-result").html("<p>No image or video posted that day!</p>");
   }
 }
 
@@ -69,9 +71,11 @@ function handleDate() {
 }
 
 function handleBTNSounds() {
-	$('#get-btn').click(() => btn.play());
-	$('#play-btn').click(() => btn.play());
-	$('#pause-btn').click(() => btn.play());
+  $("#get-btn").click(() => btn.play());
+  $("#play-btn").click(() => btn.play());
+  $("#pause-btn").click(() => btn.play());
+  $("#open-modal").click(() => btn.play());
+  $("#close-modal").click(() => btn.play());
 }
 
 function handleFlip() {
@@ -81,11 +85,21 @@ function handleFlip() {
   });
 }
 
+function handleModal() {
+  $("#open-modal").on("click", () => {
+    $("#manual-modal").show();
+  });
+  $("#close-modal").on("click", () => {
+    $("#manual-modal").hide();
+  });
+}
+
 function handler() {
   handleMaxDate();
   handleDate();
   handleFlip();
   handleBTNSounds();
+  handleModal();
 }
 
 $(handler);
